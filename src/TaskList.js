@@ -60,7 +60,7 @@ class TaskList extends React.Component{
 
     handleTaskDown = (e,id) => {
         let newTasks = [...this.state.tasks];
-        if(id < newTasks.length){
+        if(id < newTasks.length-1){
             let temp = newTasks[id];
             newTasks[id] = newTasks[id+1];
             newTasks[id+1] = temp;
@@ -100,12 +100,8 @@ class TaskList extends React.Component{
                                 <input type="checkbox" style={{width:'10%'}} defaultChecked = {false} onChange={(e) =>{this.toggleCheckbox(e,index)}}/>
                                 <span style={{width:'50%'}}>{item.text}</span>
                                 <div style={{width:'30%'}}>
-                                    {index !==0 &&
-                                        <KeyboardArrowUpIcon style={{ fontSize: 15 }}  onClick ={(e) => {this.handleTaskUp(e,index)}}/>
-                                    }
-                                    {index !== this.state.tasks.length-1 &&
-                                        <KeyboardArrowDownIcon style={{ fontSize: 15 }}  onClick ={(e) => {this.handleTaskDown(e,index)}}/>
-                                    }
+                                    <KeyboardArrowUpIcon style={{ fontSize: 15 }}  onClick ={(e) => {this.handleTaskUp(e,index)}}/>
+                                    <KeyboardArrowDownIcon style={{ fontSize: 15 }}  onClick ={(e) => {this.handleTaskDown(e,index)}}/>
                                     <DeleteIcon style={{ fontSize: 12 }}  onClick ={(e) => {this.handleDelete(e,index)}}/>
                                 </div>
                             </div>
@@ -122,12 +118,8 @@ class TaskList extends React.Component{
                                 <input type="checkbox" style={{width:'10%'}} defaultChecked= "true" onChange={(e) =>{this.toggleCheckbox(e,index)}}/>
                                 <span style={{width:'50%'}} className="complete-text">{item.text}</span>
                                 <div style={{width:'30%'}}>
-                                    {index !==0 &&
-                                        <KeyboardArrowUpIcon style={{ fontSize: 15}}  onClick ={(e) => {this.handleTaskUp(e,index)}}/>
-                                    }
-                                    {index !== this.state.tasks.length-1 &&
-                                        <KeyboardArrowDownIcon style={{ fontSize: 15}}  onClick ={(e) => {this.handleTaskDown(e,index)}}/>
-                                    }
+                                    <KeyboardArrowUpIcon style={{ fontSize: 15}}  onClick ={(e) => {this.handleTaskUp(e,index)}}/>
+                                    <KeyboardArrowDownIcon style={{ fontSize: 15}}  onClick ={(e) => {this.handleTaskDown(e,index)}}/>
                                     <DeleteIcon style={{ fontSize: 15}}  onClick ={(e) => {this.handleDelete(e,index)}}/>
                                 </div>
                             </div>
